@@ -29,5 +29,7 @@ module LoginFormBruterForcer
             $loginboth.info("Login page not found looks like this instance maybe unauthenticated")
             return "<None>", "<None>"
         end
-        
+
+        username_field = login_form.field_with(name: /user|email|login|REGEMAIL|name/i)
+        password_field = login_form.field_with(name: /pass|pwd|REGCODE/i)
         

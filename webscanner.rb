@@ -16,3 +16,5 @@ require 'sqlite3'
 require 'fileutils'
 
 require File.dirname(File.realpath(__FILE__)) + '/formloginbrute.rb'
+
+VERSION = '1.0'

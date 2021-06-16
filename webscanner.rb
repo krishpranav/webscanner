@@ -75,3 +75,7 @@ class Scanner
         @scan_all_ports = scan_all_ports
 
 
+        @brute_force_mode = brute_force_mode.downcase
+
+        @thread_count = number_of_threads
+

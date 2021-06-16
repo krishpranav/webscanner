@@ -204,5 +204,9 @@ private
         threads.each do |scan_thread|
             scan_thread.join
         end
-        
+
+        if @open_ports.zero?
+            $logfile.warn("Either all the ports were closed or webscanner did not find any web-based services\n")
+            $logfile.warn("Check #{@nmap_filename} for scan output\n")
+        end
         

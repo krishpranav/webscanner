@@ -60,4 +60,14 @@ module LoginFormBruterForcer
               $logfile.info("[+] webscanner, found default login credentials for #{url} - #{username} / #{password}")
               return username, password
             end
+        rescue Mechanize::ResponseCodeError => exception
+            if (exception.response_code != '200' or
+                exception.response_code != '301' or
+                exception.response_code != '302')
+                login_request = exception.page
+                $logfile.warn("Invalid credentials or user does not have sufficient privilege")
+            else
+                $logboth.info("Unknown server error")
+            end
+        end
         

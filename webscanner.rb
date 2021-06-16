@@ -107,3 +107,9 @@ class Scanner
         end
     end
 
+private
+
+    def nmap_scan
+        orig_std_out = $stdout.clone
+        $stdout.reopen("/dev/null", "w")
+        

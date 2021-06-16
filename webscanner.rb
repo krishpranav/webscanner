@@ -186,4 +186,5 @@ private
         $logboth.info("Using nmap scan output file #{@nmap_filename}")
         @target_urls = []
         @open_ports = 0
-        
+
+        xml = Nmap::XML.new(@nmap_filename)

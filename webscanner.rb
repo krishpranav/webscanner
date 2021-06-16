@@ -166,4 +166,7 @@ private
         threads.each do |scan_thread|
             scan_thread.join
         end
-        
+
+        $logfile.info("-----------------------------------------------------------------")
+        $logfile.info("=== WEB Scanner discovered following vulnerable applications ===")
+        $logfile.info("-----------------------------------------------------------------")

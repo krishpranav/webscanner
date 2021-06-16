@@ -32,4 +32,12 @@ module LoginFormBruterForcer
 
         username_field = login_form.field_with(name: /user|email|login|REGEMAIL|name/i)
         password_field = login_form.field_with(name: /pass|pwd|REGCODE/i)
+        if not username_field
+            $logboth.warn("[+] Could not enumerate the username field, moving on you should check it manually")
+            puts("[+] Could not enumerate the username field, moving on you should check it manually").red
+            username = "<Check Manually>"
+            password = "<Check Manually>"
+            return username, password
+        end
+        
         

@@ -18,4 +18,10 @@ module LoginFormBruterForcer
             end
         end
     end
-    
+
+    def brute_by_force(url, dcreds)
+        login_agent = Mechanize.new { |agent| agent.user_agent_alias = 'Mac Safari'}
+        login_agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        login_agent.follow_meta_refersh = true
+        login_form = login_agent.get(url).from(:name => /login/)
+        

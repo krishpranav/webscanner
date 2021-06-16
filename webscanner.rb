@@ -79,3 +79,7 @@ class Scanner
 
         @thread_count = number_of_threads
 
+        @info = [
+            ["App Name", "Url to Application", "Potential Exploit", "Username", "Password"]
+        ]
+

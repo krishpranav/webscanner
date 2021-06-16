@@ -220,4 +220,20 @@ private
             $logboth.warn("webscanner did not find any potential hosts to enumerate")
             exit
         end
+
+        threads = []
+        @thread_count.times do |i|
+            if thread_list[i] != nil 
+                threads << Thread.new do
+                    if i == 0
+                        $logboth.info("=== Enumerating vulnerable application ===")
+                    end
+                    find_vulerable_application(thread_list[i])
+                end
+            end
+        end
+
+        threads.each do |scan_thread|
+            scan_thread.join
+        end
         

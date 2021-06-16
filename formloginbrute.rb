@@ -39,5 +39,9 @@ module LoginFormBruterForcer
             password = "<Check Manually>"
             return username, password
         end
-        
+
+        username = dcreds.split(':')[0].chomp
+        password = dcreds.split(':')[1].chomp
+        username_field.value = username
+        password_field.value = password
         

@@ -138,3 +138,12 @@ private
         $stdout.reopen(orig_std_out)
     end
     
+
+    def process_savedgoodURLs_file
+
+        $logboth.info("=== Reading all saved URLs from the provider file ===")
+        @target_urls = []
+        File.read(@savedURLs_filename).each_line do |goodurl|
+            @target_urls << goodurl.chop
+        end 
+        

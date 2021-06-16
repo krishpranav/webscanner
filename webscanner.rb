@@ -50,4 +50,8 @@ class Scanner
     def initialize(paths_filename, nmap_filename, target_file, savedURLs_filename, target_ips_range, scan_port_range, scan_all_ports, brute_force_mode, number_of_threads)
         FileUtils::mkdir_p 'logs'
         webscannerlog = 'logs/webscanner_output_' + Time.now.strftime('%Y-%m-%d_%H-%M-%S') + '.log'
+        $log_file = File.open(webscannerlog, "a")
+        $logboth = Logger.new MultiDelegaotr.delegate(:write, :close).to(STDOUT, $log_file)
+        $logfile = Logger.new MultiDelegaotr.delegate(:write, :close).to($log_file)
+        $logconsole = Logger.new MultiDelegaotr.delegate(:write, :close).to(STDOUT)
         

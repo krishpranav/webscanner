@@ -100,4 +100,10 @@ class Scanner
             nmap_scan
         end
 
-        
+        if @savedURLs_filename.nil?
+            process_nmap_scan
+        else
+            process_savedgoodURLs_file
+        end
+    end
+

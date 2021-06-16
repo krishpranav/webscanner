@@ -44,4 +44,12 @@ module LoginFormBruterForcer
         password = dcreds.split(':')[1].chomp
         username_field.value = username
         password_field.value = password
+
+        begin
+            $logfile.info("trying app-specific default creds first -> #{dcreds}")
+            puts("[+] trying app-specific default creds first -> #{dcreds}\n").green
+
+            login_request = login_form.submit
+
+            sleep 0.5
         

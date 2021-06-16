@@ -52,4 +52,12 @@ module LoginFormBruterForcer
             login_request = login_form.submit
 
             sleep 0.5
+
+            if (!login_request.form_with(:name => 'login') and
+                login_request.body.scan(/"#{username_field.name}"/i).empty? and
+                login_request.body.scan(/"#{username_field.name}"/i).empty?)
+              puts "[+] webscammer, found default login credentials for #{url} - #{username}:#{password}\n".green
+              $logfile.info("[+] webscanner, found default login credentials for #{url} - #{username} / #{password}")
+              return username, password
+            end
         

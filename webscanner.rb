@@ -179,4 +179,11 @@ private
         puts @info.to_table(:first_row_is_head => true)
         @webscannerdb.close
     end
-    
+
+    def process_nmap_scan
+
+        urlstatefile = 'logs/savedURLstate_' + Time.now.strftime('%Y-%m-%d_%H-%M-%S') + '.out'
+        $logboth.info("Using nmap scan output file #{@nmap_filename}")
+        @target_urls = []
+        @open_ports = 0
+        

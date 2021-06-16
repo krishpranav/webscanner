@@ -39,4 +39,8 @@ class MultiDelegaotr
         end
         self
     end
-    
+
+    class <<self
+        alias to new
+    end
+end

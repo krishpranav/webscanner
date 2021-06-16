@@ -44,3 +44,10 @@ class MultiDelegaotr
         alias to new
     end
 end
+
+
+class Scanner
+    def initialize(paths_filename, nmap_filename, target_file, savedURLs_filename, target_ips_range, scan_port_range, scan_all_ports, brute_force_mode, number_of_threads)
+        FileUtils::mkdir_p 'logs'
+        webscannerlog = 'logs/webscanner_output_' + Time.now.strftime('%Y-%m-%d_%H-%M-%S') + '.log'
+        

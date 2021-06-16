@@ -126,3 +126,9 @@ private
                 nmap.targets = @target_ips_range
             end
             
+            nmap.ports = if @scan_all_ports
+                "1-65525"
+            elsif not @scan_port_range.empty?
+                @scan_port_range
+            end
+            

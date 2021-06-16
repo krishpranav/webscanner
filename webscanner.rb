@@ -188,3 +188,9 @@ private
         @open_ports = 0
 
         xml = Nmap::XML.new(@nmap_filename)
+
+        slice_size = (xml.hosts.size/Float(@thread_count)).ceil
+        thread_list = xml.hosts.each_slice(slice_size).to_a
+
+        threads = []
+        

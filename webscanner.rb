@@ -193,4 +193,16 @@ private
         thread_list = xml.hosts.each_slice(slice_size).to_a
 
         threads = []
+        @thread_count.times do |i|
+            if thread_list[i] != nil
+                threads << Thread.new do
+                    detect_targets(thread_list[i])
+                end
+            end
+        end
+
+        threads.each do |scan_thread|
+            scan_thread.join
+        end
+        
         

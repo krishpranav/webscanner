@@ -83,3 +83,7 @@ class Scanner
             ["App Name", "Url to Application", "Potential Exploit", "Username", "Password"]
         ]
 
+
+        begin
+            @webscanner = SQLite3::Database.new @outdb
+            @yasuodb.execute "CREATE TABLE IF NOT EXISTS VulnApps(AppName STRING, AppURL STRING, Exploit STRING, Username STRING, Password STRING)"

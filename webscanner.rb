@@ -176,3 +176,7 @@ private
         puts "-----------------------------------------------------------------"
         puts "=== WEB Scanner discovered following vulnerable applications ==="
         puts "-----------------------------------------------------------------"
+        puts @info.to_table(:first_row_is_head => true)
+        @webscannerdb.close
+    end
+    

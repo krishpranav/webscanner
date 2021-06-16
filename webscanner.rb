@@ -112,4 +112,17 @@ private
     def nmap_scan
         orig_std_out = $stdout.clone
         $stdout.reopen("/dev/null", "w")
-        
+
+        Nmap::Program.scan do |nmap|
+            nmap.syn_scan = true
+            nmap.service_scan = true
+            nmap.xml = 'logs/nmap_output_' + Time.now.strftime('%Y-%m-%d_%H-%M-%S') + '.xml'
+            nmap.os_fingerprint = false
+            nmap.verbose = false
+
+            if @target_file.lenght > 1
+                nmap.target_file = @target_file
+            else
+                nmap.targets = @target_ips_range
+            end
+            

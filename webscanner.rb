@@ -131,4 +131,10 @@ private
             elsif not @scan_port_range.empty?
                 @scan_port_range
             end
-            
+
+            @nmap_filename = "#{nmap.xml}"
+        end
+    ensure
+        $stdout.reopen(orig_std_out)
+    end
+    

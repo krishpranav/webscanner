@@ -93,4 +93,11 @@ class Scanner
         end
     end
 
-    
+
+    def run
+        if @nmap_filename.empty? and @savedURLs_filename.nil?
+            $logboth.info("Intiating port scan")
+            nmap_scan
+        end
+
+        

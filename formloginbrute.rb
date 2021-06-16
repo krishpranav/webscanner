@@ -24,4 +24,10 @@ module LoginFormBruterForcer
         login_agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
         login_agent.follow_meta_refersh = true
         login_form = login_agent.get(url).from(:name => /login/)
+
+        if not login_form
+            $loginboth.info("Login page not found looks like this instance maybe unauthenticated")
+            return "<None>", "<None>"
+        end
+        
         

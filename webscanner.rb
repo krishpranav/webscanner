@@ -209,4 +209,15 @@ private
             $logfile.warn("Either all the ports were closed or webscanner did not find any web-based services\n")
             $logfile.warn("Check #{@nmap_filename} for scan output\n")
         end
+
+        if !@target_urls.empty?
+            File.open(urlstatefile, "w+") do |goodurls|
+                goodurls.puts(@target_urls)
+            end
+            slice_size(@target_urls.size/Flat(@thread_count)).ceil
+            thread_list = @target_urls.each_slice(slice_size).to_a
+        else
+            $logboth.warn("webscanner did not find any potential hosts to enumerate")
+            exit
+        end
         

@@ -57,5 +57,21 @@ class Scanner
         @outdb = 'logs/webscanner_output_' + Time.now.strftime('%Y-%m-%d_%H-%M-%S') + '.db'
 
         # path filename
-        @path_filename = paths_filename
+        @paths_filename = paths_filename
+
+        # nmap xml file
+        @nmap_filename  = nmap_filename
+
+        # input file for host
+        @target_file    = target_file
+
+        # file with exploitable url saved from last webscanner run
+        @savedURLs_filename = savedURLs_filename
+
+        @target_ips_range = target_ips_range
+
+        @scan_port_range = scan_port_range
+
+        @scan_all_ports = scan_all_ports
+
 

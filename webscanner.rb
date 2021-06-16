@@ -146,4 +146,10 @@ private
         File.read(@savedURLs_filename).each_line do |goodurl|
             @target_urls << goodurl.chop
         end 
+        p @target_urls
+
+        slice_size = (@target_urls.size/Float(@thread_count)).ceil
+        thread_list = @target_urls.each_slice(slice_size).to_a
+
+        threads = []
         

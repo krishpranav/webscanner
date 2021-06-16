@@ -170,3 +170,9 @@ private
         $logfile.info("-----------------------------------------------------------------")
         $logfile.info("=== WEB Scanner discovered following vulnerable applications ===")
         $logfile.info("-----------------------------------------------------------------")
+
+        puts ""
+        puts ""
+        puts "-----------------------------------------------------------------"
+        puts "=== WEB Scanner discovered following vulnerable applications ==="
+        puts "-----------------------------------------------------------------"

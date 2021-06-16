@@ -55,4 +55,7 @@ class Scanner
         $logfile = Logger.new MultiDelegaotr.delegate(:write, :close).to($log_file)
         $logconsole = Logger.new MultiDelegaotr.delegate(:write, :close).to(STDOUT)
         @outdb = 'logs/webscanner_output_' + Time.now.strftime('%Y-%m-%d_%H-%M-%S') + '.db'
-        
+
+        # path filename
+        @path_filename = paths_filename
+
